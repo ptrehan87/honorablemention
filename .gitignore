@@ -1,0 +1,4 @@
+db.sqlite3
+apps/project_app/__pycache__/models.cpython-36.pyc
+apps/project_app/__pycache__/views.cpython-36.pyc
+apps/project_app/migrations/__pycache__/0002_place_recommend.cpython-36

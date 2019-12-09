@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>Add a marker using a place name</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .mylocation {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    
+    {%for place in places%}
+    {% if place.uploaded_by.id == user.id %}
+    <p class="mylocation">{{place.title}} {{place.city}}, {{place.state}}</p>
+    {%endif%}
+    {%endfor%}
+    <div id='map'></div>
+    <script src='https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js'></script>
+    <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+    <script>
+        var locquery = document.getElementsByClassName('mylocation');
+        console.log(locquery);
+        var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+
+            zoom: 10
+        });
+        var arr = [];
+        var avgx = 0
+        var avgy = 0
+
+        for (let i = 0; i < locquery.length; i++) {
+
+
+            mapboxClient.geocoding.forwardGeocode({
+                query: locquery[i].innerHTML,
+                autocomplete: false,
+                limit: 15
+            })
+                .send()
+                .then(function (response) {
+                    if (response && response.body && response.body.features && response.body.features.length) {
+                        var feature = response.body.features[0];
+                        arr.push(feature.center);
+                        var popup = new mapboxgl.Popup({ offset: 25 })
+                            .setHTML(`<h1>${locquery[i].innerHTML}</h1>`);
+
+                        new mapboxgl.Marker()
+                            .setLngLat(feature.center)
+                            .setPopup(popup)
+                            .addTo(map);
+                        map.flyTo({ center: feature.center, zoom: 7 });
+                    }
+                });
+        }
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#logout{
+  margin-left: 60%;
+}
+body {
+  /* background-image: url("/static/project_app/images/roadtrip.jpg"); */
+  background: linear-gradient(rgb(122, 237, 252), rgb(40, 224, 248));
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.good {
+    background-color: rgb(112, 243, 129);
+}
+.poor {
+    background-color: rgb(236, 84, 84);
+}
+nav{
+  border: 4px solid #343a40;
+ 
+}
+
+.dropdown_menu {
+  display: inline-block;
+}
+.head a,
+.head form,
+.head h1 {
+  display: inline-block;
+}
+
+.logo {
+  width: 60px;
+  display: inline-block;
+}
+
+.job_list {
+  overflow: auto;
+  margin: auto;
+  
+}
+.job_list a{
+  color: black;
+}
+
+@media only screen and (max-width: 580px){
+  .job_list{
+      width: 100%;
+      margin-top: 0;
+      font-size: 12px;
+     
+  }
+  .logo{
+    width: 40px;
+  }
+  #logout{
+    margin-left: 0;
+    float: left;
+  }
+
+}
+
+@media only screen and (min-width: 580px){
+  .job_list{
+      width: 90%;
+      margin-top: 1%; 
+      font-size: 13px; 
+      
+  }
+  .job_list:hover{
+    text-decoration: none;
+  }
+  .logo{
+    width: 50px;
+  }
+  #logout{
+    margin-left: 0;
+    float: left;
+  }
+ 
+}
+@media only screen and (min-width: 980px){
+  .job_list{
+      width: 80%;
+      margin-top: 2%;
+      font-size: 16px;
+  }
+  #logout{
+    margin-left: 60%;
+  }
+
+}
+
+

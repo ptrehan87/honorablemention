@@ -1,0 +1,46 @@
+body {
+  /* background-image: url("/static/project_app/images/sf3.jpg"); */
+  background: linear-gradient(rgb(122, 237, 252), rgb(40, 224, 248));
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+.jumbotron {
+  width: 35%;
+  margin: 1% auto 5% auto;
+  border: 1px solid black;
+  height: 20%;
+  background-color: white;
+  box-shadow: 5px 5px 12px black;
+}
+a {
+  box-shadow: 3px 3px 10px black;
+}
+@media only screen and (max-width: 580px){
+  .jumbotron{
+      width: 100%;
+      font-size: 10px;
+      box-shadow: none;
+  }
+
+}
+
+@media only screen and (min-width: 580px){
+  .jumbotron{
+      width: 70%; 
+  }
+  
+ 
+}
+@media only screen and (min-width: 1000px){
+  .jumbotron{
+      width: 60%;
+      margin-top: 2%;
+  }
+
+
+}

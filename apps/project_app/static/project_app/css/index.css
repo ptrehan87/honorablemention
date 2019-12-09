@@ -1,0 +1,55 @@
+body{
+    background-image: url("/static/project_app/images/beach.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#reg {
+    
+    width: 38%;
+    display: inline-block;
+    border: 1px solid black;
+    padding: 2%;
+    background: linear-gradient(rgb(128, 238, 133), rgb(129, 248, 125), rgb(89, 252, 74), rgb(110, 245, 110));
+    box-shadow: 1px 1px 1px black;
+}
+
+.login {
+    padding: 2%;
+    width: 38%;
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid black;
+    background: linear-gradient(rgb(131, 252, 252), rgb(0, 255, 255), rgb(148, 240, 247), rgb(38, 247, 247));
+    box-shadow: 1px 1px 1px black;
+}
+button{
+    box-shadow: 1px 1px 1px black;
+    box-shadow: 1px 1px 1px black;
+}
+@media only screen and (max-width: 580px){
+    .login, #reg{
+        width: 100%;
+        
+    }
+    body{
+        background-color: bisque;
+    }
+  }
+  
+  @media only screen and (min-width: 580px){
+ 
+    .login, #reg{
+        width: 60%;
+        margin: auto;
+    }
+
+  }
+  @media only screen and (min-width: 1000px){
+   .login, #reg{
+       margin: auto;
+   }
+   body{
+    background-color: bisque;
+}
+  
+  }
